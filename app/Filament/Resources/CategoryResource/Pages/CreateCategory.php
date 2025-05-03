@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\PostResource\Pages;
+namespace App\Filament\Resources\CategoryResource\Pages;
 
-use App\Filament\Resources\PostResource;
+use App\Filament\Resources\CategoryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreatePost extends CreateRecord
+class CreateCategory extends CreateRecord
 {
-    protected static string $resource = PostResource::class;
+    protected static string $resource = CategoryResource::class;
 
     protected function getCreatedNotificationRedirectUrl(): ?string
     {
