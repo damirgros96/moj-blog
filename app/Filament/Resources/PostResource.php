@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Models\Category; 
 use App\Models\User; 
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
 
 
 class PostResource extends Resource
@@ -38,6 +39,12 @@ class PostResource extends Resource
                 ->label('Author')
                 ->relationship('user', 'name')
                 ->required(),
+
+            FileUpload::make('image')
+                ->image()
+                ->directory('post-images')
+                ->required(),
+            
 
             Forms\Components\RichEditor::make('content')->required(),
             ]);

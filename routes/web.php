@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\PhotoController;
-use App\Http\Controllers\VideoController;
 use App\Http\Controllers\PageController;
 
 
@@ -19,9 +17,12 @@ return Route::post('/moj-blog/public/livewire/update', $handle);
 
 Route::resource('posts', PostController::class);
 
-Route::get('/', [PhotoController::class, 'index'])->name('home');
-Route::get('/videos', [VideoController::class, 'videos'])->name('videos');
+Route::get('/', [PageController::class, 'posts'])->name('home');
+Route::get('/photos', [PageController::class, 'photos'])->name('photos');
+Route::get('/videos', [PageController::class, 'videos'])->name('videos');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-Route::get('/photo-detail', [PageController::class, 'photoDetail'])->name('photo-detail');
-Route::get('/video-detail', [PageController::class, 'videoDetail'])->name('video-detail');
+Route::get('/photo-detail', [PageController::class, 'photosDetail'])->name('photo-detail');
+Route::get('/video-detail', [PageController::class, 'videosDetail'])->name('video-detail');
+Route::get('/post-detail/{id}', [PageController::class, 'postsDetail'])->name('posts-detail');
+
